@@ -117,40 +117,40 @@ const SkillsManagement = () => {
   const getProficiencyBadge = (level) => {
     switch (level) {
       case 'EXPERT':
-        return 'bg-purple-100 text-purple-700 border-purple-200';
+        return 'bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800';
       case 'ADVANCED':
-        return 'bg-indigo-100 text-indigo-700 border-indigo-200';
+        return 'bg-indigo-100 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800';
       case 'INTERMEDIATE':
-        return 'bg-blue-100 text-blue-700 border-blue-200';
+        return 'bg-blue-100 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800';
       default:
-        return 'bg-slate-100 text-slate-700 border-slate-200';
+        return 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700';
     }
   };
 
   return (
     <div className="space-y-6 animate-in fade-in pb-12">
       {/* Header */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
-            <Code className="w-6 h-6 text-indigo-600" /> Technical & Soft Skills Matrix
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+            <Code className="w-6 h-6 text-indigo-600 dark:text-indigo-400" /> Technical & Soft Skills Matrix
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Build your skills repertoire. Verified skills receive priority recommendation matching.
           </p>
         </div>
 
         <button
           onClick={handleOpenAdd}
-          className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-200 flex items-center gap-2 self-start sm:self-auto transition-all"
+          className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-500/20 flex items-center gap-2 self-start sm:self-auto transition-all"
         >
           <Plus className="w-4 h-4" /> Add New Skill
         </button>
       </div>
 
       {message && (
-        <div className="p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-2xl flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600" /> {message}
+        <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold rounded-2xl flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> {message}
         </div>
       )}
 
@@ -162,8 +162,8 @@ const SkillsManagement = () => {
             onClick={() => setActiveCategory(c.id)}
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
               activeCategory === c.id
-                ? 'bg-slate-900 text-white shadow-xs'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
+                ? 'bg-slate-900 dark:bg-indigo-600 text-white shadow-xs'
+                : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-800'
             }`}
           >
             {c.label} {c.id !== 'ALL' && `(${skills.filter((s) => s.category === c.id).length})`}
@@ -174,12 +174,12 @@ const SkillsManagement = () => {
       {/* Skills Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredSkills.length === 0 ? (
-          <div className="col-span-full bg-white p-12 text-center rounded-3xl border border-slate-200 text-slate-400">
+          <div className="col-span-full bg-white dark:bg-slate-900 p-12 text-center rounded-3xl border border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500">
             <Code className="w-10 h-10 mx-auto mb-2 opacity-40" />
             <p className="text-xs font-semibold">No skills found in this category.</p>
             <button
               onClick={handleOpenAdd}
-              className="mt-3 text-xs font-bold text-indigo-600 hover:underline"
+              className="mt-3 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
             >
               Add your first skill
             </button>
@@ -188,34 +188,34 @@ const SkillsManagement = () => {
           filteredSkills.map((skill) => (
             <div
               key={skill.id}
-              className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-indigo-300 hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-bold text-sm text-slate-900">{skill.name}</h3>
+                  <h3 className="font-bold text-sm text-slate-900 dark:text-white">{skill.name}</h3>
                   <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border ${getProficiencyBadge(skill.proficiency)}`}>
                     {skill.proficiency}
                   </span>
                 </div>
 
                 <div className="mt-2 flex flex-wrap items-center gap-2">
-                  <span className="text-[11px] font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md">
+                  <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
                     {skill.category.replace('_', ' ')}
                   </span>
-                  <span className="text-[11px] font-medium text-slate-500">
+                  <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400">
                     {skill.yearsOfExperience || 1} yr{skill.yearsOfExperience > 1 ? 's' : ''} exp
                   </span>
                 </div>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                 <div>
                   {skill.verified ? (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
-                      <CheckCircle2 className="w-3 h-3 text-emerald-600" /> Endorsed by {skill.verifiedBy || 'Coordinator'}
+                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" /> Endorsed by {skill.verifiedBy || 'Coordinator'}
                     </span>
                   ) : (
-                    <span className="text-[11px] font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                    <span className="text-[11px] font-medium text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-full border border-amber-200 dark:border-amber-800">
                       Pending Endorsement
                     </span>
                   )}
@@ -224,14 +224,14 @@ const SkillsManagement = () => {
                 <div className="flex items-center gap-1">
                   <button
                     onClick={() => handleOpenEdit(skill)}
-                    className="p-1.5 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors"
+                    className="p-1.5 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                     title="Edit"
                   >
                     <Edit2 className="w-3.5 h-3.5" />
                   </button>
                   <button
                     onClick={() => handleDelete(skill.id)}
-                    className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                    className="p-1.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
                     title="Delete"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -245,36 +245,36 @@ const SkillsManagement = () => {
 
       {/* Add / Edit Skill Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
-          <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-md w-full p-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
-              <h3 className="font-extrabold text-sm text-slate-900">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 max-w-md w-full p-6 transition-all">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-4">
+              <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">
                 {editingSkill ? 'Edit Skill' : 'Add New Skill'}
               </h3>
-              <button onClick={() => setShowAddModal(false)} className="p-1 text-slate-400 hover:text-slate-600">
+              <button onClick={() => setShowAddModal(false)} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Skill Name</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Skill Name</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. React.js, Spring Boot, Docker, SQL"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Category</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Category</label>
                 <select
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 >
                   <option value="TECHNICAL">Technical (Programming / CS)</option>
                   <option value="FRAMEWORK_TOOL">Frameworks & Tools</option>
@@ -285,7 +285,7 @@ const SkillsManagement = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Proficiency Level</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Proficiency Level</label>
                 <div className="grid grid-cols-2 gap-2">
                   {proficiencies.map((lvl) => (
                     <button
@@ -294,8 +294,8 @@ const SkillsManagement = () => {
                       onClick={() => setFormData({ ...formData, proficiency: lvl })}
                       className={`py-2 px-3 text-xs font-bold rounded-xl border text-center transition-all ${
                         formData.proficiency === lvl
-                          ? 'bg-indigo-50 border-indigo-600 text-indigo-700 ring-1 ring-indigo-500'
-                          : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                          ? 'bg-indigo-50 dark:bg-indigo-950/60 border-indigo-600 dark:border-indigo-500 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-500'
+                          : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
                       }`}
                     >
                       {lvl}
@@ -305,14 +305,14 @@ const SkillsManagement = () => {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Years of Experience</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Years of Experience</label>
                 <input
                   type="number"
                   min="1"
                   max="10"
                   value={formData.yearsOfExperience}
                   onChange={(e) => setFormData({ ...formData, yearsOfExperience: parseInt(e.target.value) || 1 })}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 />
               </div>
 
@@ -320,7 +320,7 @@ const SkillsManagement = () => {
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
+                  className="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl"
                 >
                   Cancel
                 </button>
@@ -341,4 +341,3 @@ const SkillsManagement = () => {
 };
 
 export default SkillsManagement;
-

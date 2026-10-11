@@ -9,28 +9,28 @@ const CertificateViewerModal = ({ certificate, studentName, studentRollNumber, o
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in overflow-y-auto">
-      <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-4xl w-full my-6 flex flex-col overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-in fade-in overflow-y-auto">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-4xl w-full my-6 flex flex-col overflow-hidden transition-all">
         {/* Controls Bar (hidden during print) */}
-        <div className="p-4 px-6 border-b border-slate-200 bg-slate-50 flex items-center justify-between no-print">
+        <div className="p-4 px-6 border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 flex items-center justify-between no-print">
           <div className="flex items-center gap-2">
-            <Award className="w-5 h-5 text-indigo-600" />
+            <Award className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
             <div>
-              <h3 className="font-extrabold text-sm text-slate-900">Official Certificate Viewer</h3>
-              <p className="text-[11px] text-slate-500">Verified platform credential document</p>
+              <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">Official Certificate Viewer</h3>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400">Verified platform credential document</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold text-xs shadow-md shadow-indigo-200 flex items-center gap-1.5 transition-all"
+              className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold text-xs shadow-md shadow-indigo-500/20 flex items-center gap-1.5 transition-all"
             >
               <Printer className="w-4 h-4" /> Download / Print PDF
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-200 transition-colors"
+              className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -38,8 +38,8 @@ const CertificateViewerModal = ({ certificate, studentName, studentRollNumber, o
         </div>
 
         {/* Certificate Canvas / Sheet */}
-        <div className="p-6 sm:p-12 bg-radial from-amber-50/40 via-white to-indigo-50/30 flex items-center justify-center">
-          <div className="w-full max-w-3xl bg-white border-8 border-double border-indigo-950 rounded-2xl p-8 sm:p-12 shadow-2xl relative overflow-hidden certificate-sheet">
+        <div className="p-6 sm:p-12 bg-slate-100/70 dark:bg-slate-950/90 flex items-center justify-center transition-colors">
+          <div className="w-full max-w-3xl bg-white border-8 border-double border-indigo-950 rounded-2xl p-8 sm:p-12 shadow-2xl relative overflow-hidden certificate-sheet text-slate-900">
             {/* Elegant Corner Filigree Accents */}
             <div className="absolute top-2 left-2 w-12 h-12 border-t-4 border-l-4 border-amber-500 rounded-tl-lg"></div>
             <div className="absolute top-2 right-2 w-12 h-12 border-t-4 border-r-4 border-amber-500 rounded-tr-lg"></div>

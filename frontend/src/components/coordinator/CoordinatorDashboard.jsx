@@ -47,7 +47,7 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
   return (
     <div className="space-y-6 animate-in fade-in pb-12">
       {/* Top Banner */}
-      <div className="rounded-3xl bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 text-white p-6 sm:p-8 shadow-xl">
+      <div className="rounded-3xl bg-gradient-to-r from-purple-950 via-indigo-950 to-slate-950 text-white p-6 sm:p-8 shadow-xl border border-purple-900/40">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-400/30 text-purple-200 text-xs font-semibold">
@@ -81,60 +81,60 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Card 1: Total Students */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Registered Students</span>
-            <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Registered Students</span>
+            <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
               <Users className="w-4 h-4" />
             </div>
           </div>
           <div className="mt-3">
-            <div className="text-2xl font-black text-slate-900">{analytics?.totalStudents || 0}</div>
-            <p className="text-xs text-indigo-600 font-semibold mt-1">Enrolled candidates</p>
+            <div className="text-2xl font-black text-slate-900 dark:text-white">{analytics?.totalStudents || 0}</div>
+            <p className="text-xs text-indigo-600 dark:text-indigo-400 font-semibold mt-1">Enrolled candidates</p>
           </div>
         </div>
 
         {/* Card 2: Active Internships */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Active Openings</span>
-            <div className="w-9 h-9 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Active Openings</span>
+            <div className="w-9 h-9 rounded-xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center">
               <Briefcase className="w-4 h-4" />
             </div>
           </div>
           <div className="mt-3">
-            <div className="text-2xl font-black text-slate-900">{analytics?.activeInternships || 0} Openings</div>
-            <p className="text-xs text-purple-600 font-semibold mt-1">{analytics?.totalInternships || 0} Total Listings</p>
+            <div className="text-2xl font-black text-slate-900 dark:text-white">{analytics?.activeInternships || 0} Openings</div>
+            <p className="text-xs text-purple-600 dark:text-purple-400 font-semibold mt-1">{analytics?.totalInternships || 0} Total Listings</p>
           </div>
         </div>
 
         {/* Card 3: Total Applications */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Total Submissions</span>
-            <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Total Submissions</span>
+            <div className="w-9 h-9 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 flex items-center justify-center">
               <FileText className="w-4 h-4" />
             </div>
           </div>
           <div className="mt-3">
-            <div className="text-2xl font-black text-slate-900">{analytics?.totalApplications || 0}</div>
-            <p className="text-xs text-blue-600 font-semibold mt-1">{analytics?.totalPending || 0} Pending decisions</p>
+            <div className="text-2xl font-black text-slate-900 dark:text-white">{analytics?.totalApplications || 0}</div>
+            <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold mt-1">{analytics?.totalPending || 0} Pending decisions</p>
           </div>
         </div>
 
         {/* Card 4: Placement Rate */}
-        <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs transition-all">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Placement Rate</span>
-            <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Placement Rate</span>
+            <div className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
               <TrendingUp className="w-4 h-4" />
             </div>
           </div>
           <div className="mt-3">
-            <div className="text-2xl font-black text-emerald-600">
+            <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400">
               {analytics?.placementRatePercentage || 0}%
             </div>
-            <p className="text-xs text-emerald-700 font-semibold mt-1 flex items-center gap-1">
+            <p className="text-xs text-emerald-700 dark:text-emerald-300 font-semibold mt-1 flex items-center gap-1">
               <CheckCircle2 className="w-3.5 h-3.5" /> {analytics?.totalSelected || 0} Placed Students
             </p>
           </div>
@@ -144,13 +144,13 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
       {/* Analytics Distributions Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Top Skills In Demand */}
-        <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
+        <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-4 transition-all">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-extrabold text-sm text-slate-900 flex items-center gap-2">
-                <BarChart3 className="w-4 h-4 text-indigo-600" /> Top Skills In Demand
+              <h3 className="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+                <BarChart3 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" /> Top Skills In Demand
               </h3>
-              <p className="text-xs text-slate-500">Skills most frequently requested by hiring companies</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">Skills most frequently requested by hiring companies</p>
             </div>
           </div>
 
@@ -162,10 +162,10 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
                 return (
                   <div key={skill} className="space-y-1">
                     <div className="flex items-center justify-between text-xs font-bold">
-                      <span className="text-slate-800">{skill}</span>
-                      <span className="text-indigo-600">{count} opening{count > 1 ? 's' : ''}</span>
+                      <span className="text-slate-800 dark:text-slate-200">{skill}</span>
+                      <span className="text-indigo-600 dark:text-indigo-400">{count} opening{count > 1 ? 's' : ''}</span>
                     </div>
-                    <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
+                    <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
                       <div
                         className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full transition-all duration-500"
                         style={{ width: `${percentage}%` }}
@@ -178,12 +178,12 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
         </div>
 
         {/* Application Status Pipeline Breakdown */}
-        <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
+        <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-4 transition-all">
           <div>
-            <h3 className="font-extrabold text-sm text-slate-900 flex items-center gap-2">
-              <PieChart className="w-4 h-4 text-purple-600" /> Recruitment Funnel Status
+            <h3 className="font-extrabold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+              <PieChart className="w-4 h-4 text-purple-600 dark:text-purple-400" /> Recruitment Funnel Status
             </h3>
-            <p className="text-xs text-slate-500">Application volume by current pipeline phase</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Application volume by current pipeline phase</p>
           </div>
 
           <div className="space-y-3 pt-2">
@@ -196,12 +196,12 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
                 return (
                   <div key={status} className="space-y-1">
                     <div className="flex items-center justify-between text-xs font-bold">
-                      <span className="text-slate-800">{status.replace('_', ' ')}</span>
-                      <span className="text-slate-500 font-medium">
+                      <span className="text-slate-800 dark:text-slate-200">{status.replace('_', ' ')}</span>
+                      <span className="text-slate-500 dark:text-slate-400 font-medium">
                         {count} ({percentage}%)
                       </span>
                     </div>
-                    <div className="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
+                    <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
                       <div
                         className={`h-full ${colorClass} rounded-full transition-all duration-500`}
                         style={{ width: `${percentage}%` }}
@@ -217,18 +217,18 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
       {/* Department Distribution & Credentials Status */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Department Enrollment */}
-        <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
+        <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-4 transition-all">
           <div>
-            <h3 className="font-extrabold text-sm text-slate-900">Department Participation</h3>
-            <p className="text-xs text-slate-500">Candidate distribution across academic departments</p>
+            <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">Department Participation</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Candidate distribution across academic departments</p>
           </div>
 
           <div className="space-y-2 pt-1">
             {analytics?.departmentStudentCounts &&
               Object.entries(analytics.departmentStudentCounts).map(([dept, count]) => (
-                <div key={dept} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 text-xs">
-                  <span className="font-bold text-slate-800">{dept}</span>
-                  <span className="font-mono font-bold text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded-md">
+                <div key={dept} className="flex items-center justify-between p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-xs">
+                  <span className="font-bold text-slate-800 dark:text-slate-200">{dept}</span>
+                  <span className="font-mono font-bold text-indigo-700 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-0.5 rounded-md">
                     {count} student{count > 1 ? 's' : ''}
                   </span>
                 </div>
@@ -237,25 +237,25 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
         </div>
 
         {/* Credentials Verification Summary */}
-        <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-4">
+        <div className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-4 transition-all">
           <div>
-            <h3 className="font-extrabold text-sm text-slate-900">Credential Verification Summary</h3>
-            <p className="text-xs text-slate-500">Student certifications pending coordinator review</p>
+            <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">Credential Verification Summary</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400">Student certifications pending coordinator review</p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 pt-1">
-            <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-100">
-              <span className="text-xs font-bold text-emerald-700">Verified Credentials</span>
-              <div className="text-2xl font-black text-emerald-900 mt-1">{analytics?.verifiedCertifications || 0}</div>
-              <p className="text-[11px] text-emerald-600 mt-1">Validated by coordinator</p>
+            <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/50">
+              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300">Verified Credentials</span>
+              <div className="text-2xl font-black text-emerald-900 dark:text-emerald-100 mt-1">{analytics?.verifiedCertifications || 0}</div>
+              <p className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-1">Validated by coordinator</p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-100">
-              <span className="text-xs font-bold text-amber-700">Pending Review</span>
-              <div className="text-2xl font-black text-amber-900 mt-1">{analytics?.pendingCertifications || 0}</div>
+            <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-900/50">
+              <span className="text-xs font-bold text-amber-700 dark:text-amber-300">Pending Review</span>
+              <div className="text-2xl font-black text-amber-900 dark:text-amber-100 mt-1">{analytics?.pendingCertifications || 0}</div>
               <button
                 onClick={() => setActiveTab('student-directory')}
-                className="text-[11px] font-bold text-amber-800 underline mt-1 block"
+                className="text-[11px] font-bold text-amber-800 dark:text-amber-300 underline mt-1 block"
               >
                 Review now →
               </button>
@@ -268,4 +268,3 @@ const CoordinatorDashboard = ({ setActiveTab }) => {
 };
 
 export default CoordinatorDashboard;
-

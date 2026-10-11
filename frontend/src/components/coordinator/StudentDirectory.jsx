@@ -86,24 +86,24 @@ const StudentDirectory = () => {
   return (
     <div className="space-y-6 animate-in fade-in pb-12">
       {/* Header */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
-            <GraduationCap className="w-6 h-6 text-purple-600" /> Student Profiles & Credential Verification
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+            <GraduationCap className="w-6 h-6 text-purple-600 dark:text-purple-400" /> Student Profiles & Credential Verification
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Browse complete student records, endorse skills, and approve uploaded industry credentials.
           </p>
         </div>
 
         {/* Tab switch */}
-        <div className="flex bg-slate-100 p-1 rounded-2xl">
+        <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-2xl">
           <button
             onClick={() => setActiveTab('directory')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
               activeTab === 'directory'
-                ? 'bg-white text-purple-700 shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-white dark:bg-slate-700 text-purple-700 dark:text-purple-300 shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Student Directory ({students.length})
@@ -112,8 +112,8 @@ const StudentDirectory = () => {
             onClick={() => setActiveTab('verifications')}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
               activeTab === 'verifications'
-                ? 'bg-white text-purple-700 shadow-xs'
-                : 'text-slate-600 hover:text-slate-900'
+                ? 'bg-white dark:bg-slate-700 text-purple-700 dark:text-purple-300 shadow-xs'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
             }`}
           >
             Pending Certs
@@ -127,8 +127,8 @@ const StudentDirectory = () => {
       </div>
 
       {message && (
-        <div className="p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-2xl flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600" /> {message}
+        <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold rounded-2xl flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> {message}
         </div>
       )}
 
@@ -142,7 +142,7 @@ const StudentDirectory = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search by student, roll no, department..."
-              className="w-full pl-10 pr-4 py-2.5 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:outline-hidden bg-white shadow-2xs"
+              className="w-full pl-10 pr-4 py-2.5 text-xs border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-purple-500 focus:outline-hidden bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 shadow-2xs"
             />
           </div>
 
@@ -150,45 +150,45 @@ const StudentDirectory = () => {
             {filteredStudents.map((s) => (
               <div
                 key={s.id}
-                className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs hover:border-purple-300 hover:shadow-md transition-all flex flex-col justify-between"
+                className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-purple-300 dark:hover:border-purple-600 hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center gap-3">
                     <img
                       src={s.avatarUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(s.fullName || 'Student')}&background=7c3aed&color=fff`}
                       alt={s.fullName}
-                      className="w-12 h-12 rounded-2xl object-cover border border-purple-200 ring-2 ring-purple-50"
+                      className="w-12 h-12 rounded-2xl object-cover border border-purple-200 dark:border-purple-800 ring-2 ring-purple-50 dark:ring-purple-950"
                     />
                     <div>
-                      <h3 className="font-extrabold text-sm text-slate-900">{s.fullName}</h3>
-                      <p className="text-[11px] font-mono text-slate-500">Roll: {s.rollNumber}</p>
+                      <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">{s.fullName}</h3>
+                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">Roll: {s.rollNumber}</p>
                     </div>
                   </div>
 
-                  <div className="mt-4 space-y-1.5 text-xs text-slate-600">
-                    <p className="font-medium text-slate-700">{s.course || 'B.Tech CS'}</p>
-                    <p className="text-slate-500">{s.department}</p>
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                      <span className="font-bold text-purple-700">CGPA: {s.cgpa || 8.0} / 10</span>
-                      <span className="text-slate-500">Grad: {s.graduationYear}</span>
+                  <div className="mt-4 space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
+                    <p className="font-medium text-slate-700 dark:text-slate-300">{s.course || 'B.Tech CS'}</p>
+                    <p className="text-slate-500 dark:text-slate-400">{s.department}</p>
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100 dark:border-slate-800">
+                      <span className="font-bold text-purple-700 dark:text-purple-400">CGPA: {s.cgpa || 8.0} / 10</span>
+                      <span className="text-slate-500 dark:text-slate-400">Grad: {s.graduationYear}</span>
                     </div>
                   </div>
 
                   {/* Skills count pill */}
                   <div className="mt-3 flex items-center gap-2 text-[11px]">
-                    <span className="bg-purple-50 text-purple-700 font-bold px-2 py-0.5 rounded-md">
+                    <span className="bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 font-bold px-2 py-0.5 rounded-md">
                       {s.skills?.length || 0} Skills
                     </span>
-                    <span className="bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded-md">
+                    <span className="bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold px-2 py-0.5 rounded-md">
                       {s.skills?.filter((sk) => sk.verified)?.length || 0} Endorsed
                     </span>
                   </div>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-slate-100">
+                <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800">
                   <button
                     onClick={() => setSelectedStudent(s)}
-                    className="w-full py-2 bg-slate-50 hover:bg-purple-50 text-slate-700 hover:text-purple-700 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1.5"
+                    className="w-full py-2 bg-slate-50 dark:bg-slate-800/80 hover:bg-purple-50 dark:hover:bg-purple-950/50 text-slate-700 dark:text-slate-300 hover:text-purple-700 dark:hover:text-purple-300 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1.5"
                   >
                     View Full Profile & Skills <ChevronRight className="w-3.5 h-3.5" />
                   </button>
@@ -203,27 +203,27 @@ const StudentDirectory = () => {
       {activeTab === 'verifications' && (
         <div className="space-y-4">
           {pendingCertifications.length === 0 ? (
-            <div className="bg-white p-12 text-center rounded-3xl border border-slate-200 text-slate-400">
+            <div className="bg-white dark:bg-slate-900 p-12 text-center rounded-3xl border border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500">
               <CheckCircle2 className="w-10 h-10 mx-auto mb-2 text-emerald-500" />
-              <p className="text-xs font-bold text-slate-700">All student certifications verified!</p>
-              <p className="text-[11px] text-slate-400 mt-1">No credentials pending review at this time.</p>
+              <p className="text-xs font-bold text-slate-700 dark:text-slate-300">All student certifications verified!</p>
+              <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">No credentials pending review at this time.</p>
             </div>
           ) : (
             pendingCertifications.map((cert) => (
               <div
                 key={cert.id}
-                className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4"
+                className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all"
               >
                 <div className="flex items-start gap-3.5">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-800 flex items-center justify-center shrink-0">
                     <Award className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-sm text-slate-900">{cert.title}</h3>
-                    <p className="text-xs font-bold text-slate-600 mt-0.5">
+                    <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">{cert.title}</h3>
+                    <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-0.5">
                       Issued by: <strong>{cert.issuingOrganization}</strong> • Student: <strong>{cert.student?.fullName}</strong> ({cert.student?.department})
                     </p>
-                    <div className="flex flex-wrap items-center gap-3 mt-1.5 text-[11px] text-slate-500">
+                    <div className="flex flex-wrap items-center gap-3 mt-1.5 text-[11px] text-slate-500 dark:text-slate-400">
                       {cert.credentialId && <span>ID: <code className="font-bold">{cert.credentialId}</code></span>}
                       {cert.issueDate && <span>Issued: {cert.issueDate}</span>}
                       {cert.credentialUrl && (
@@ -231,7 +231,7 @@ const StudentDirectory = () => {
                           href={cert.credentialUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="font-bold text-indigo-600 hover:underline flex items-center gap-1"
+                          className="font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
                         >
                           Verify Credential Link <ExternalLink className="w-3 h-3" />
                         </a>
@@ -249,7 +249,7 @@ const StudentDirectory = () => {
                   </button>
                   <button
                     onClick={() => handleVerifyCert(cert.id, 'REJECTED')}
-                    className="px-4 py-2 rounded-xl border border-rose-200 text-rose-700 hover:bg-rose-50 font-bold text-xs transition-all flex items-center gap-1.5"
+                    className="px-4 py-2 rounded-xl border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 hover:bg-rose-50 dark:hover:bg-rose-950/40 font-bold text-xs transition-all flex items-center gap-1.5"
                   >
                     <XCircle className="w-3.5 h-3.5" /> Reject
                   </button>
@@ -262,23 +262,23 @@ const StudentDirectory = () => {
 
       {/* Student Details Drawer / Modal */}
       {selectedStudent && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in overflow-y-auto">
-          <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-3xl w-full my-8 max-h-[90vh] overflow-y-auto p-6 sm:p-8">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in overflow-y-auto">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 max-w-3xl w-full my-8 max-h-[90vh] overflow-y-auto p-6 sm:p-8 transition-all">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-4">
               <div className="flex items-center gap-3">
                 <img
                   src={selectedStudent.avatarUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(selectedStudent.fullName)}&background=7c3aed&color=fff`}
                   alt={selectedStudent.fullName}
-                  className="w-12 h-12 rounded-2xl object-cover border border-purple-200"
+                  className="w-12 h-12 rounded-2xl object-cover border border-purple-200 dark:border-purple-800"
                 />
                 <div>
-                  <h3 className="font-black text-base text-slate-900">{selectedStudent.fullName}</h3>
-                  <p className="text-xs text-slate-500">
+                  <h3 className="font-black text-base text-slate-900 dark:text-white">{selectedStudent.fullName}</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     {selectedStudent.course} • Roll: {selectedStudent.rollNumber} • CGPA: {selectedStudent.cgpa}/10
                   </p>
                 </div>
               </div>
-              <button onClick={() => setSelectedStudent(null)} className="p-1 text-slate-400 hover:text-slate-600">
+              <button onClick={() => setSelectedStudent(null)} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
@@ -287,8 +287,8 @@ const StudentDirectory = () => {
               {/* Career Objective */}
               {selectedStudent.careerObjective && (
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Career Objective</h4>
-                  <p className="text-xs text-slate-700 italic bg-slate-50 p-3 rounded-xl border border-slate-100">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">Career Objective</h4>
+                  <p className="text-xs text-slate-700 dark:text-slate-300 italic bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-100 dark:border-slate-700">
                     "{selectedStudent.careerObjective}"
                   </p>
                 </div>
@@ -296,25 +296,25 @@ const StudentDirectory = () => {
 
               {/* Skills Matrix with Endorse buttons */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Skills & Endorsements</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Skills & Endorsements</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {selectedStudent.skills?.map((skill) => (
-                    <div key={skill.id} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs">
+                    <div key={skill.id} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs">
                       <div>
-                        <strong className="text-slate-900">{skill.name}</strong>
-                        <span className="text-[10px] text-slate-500 block font-medium">
+                        <strong className="text-slate-900 dark:text-white">{skill.name}</strong>
+                        <span className="text-[10px] text-slate-500 dark:text-slate-400 block font-medium">
                           {skill.proficiency} • {skill.category}
                         </span>
                       </div>
 
                       {skill.verified ? (
-                        <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                        <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">
                           ✓ Endorsed
                         </span>
                       ) : (
                         <button
                           onClick={() => handleEndorseSkill(skill.id)}
-                          className="text-[11px] font-bold text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 px-2 py-1 rounded-lg border border-purple-200 transition-colors"
+                          className="text-[11px] font-bold text-purple-700 dark:text-purple-300 hover:text-purple-900 dark:hover:text-purple-100 bg-purple-50 dark:bg-purple-950/60 hover:bg-purple-100 dark:hover:bg-purple-900/60 px-2 py-1 rounded-lg border border-purple-200 dark:border-purple-800 transition-colors"
                         >
                           Endorse Skill
                         </button>
@@ -326,13 +326,13 @@ const StudentDirectory = () => {
 
               {/* Projects */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Projects</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Projects</h4>
                 <div className="space-y-2">
                   {selectedStudent.projects?.map((proj) => (
-                    <div key={proj.id} className="p-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
-                      <div className="font-bold text-slate-900">{proj.title}</div>
-                      <div className="text-[11px] font-mono text-purple-700 mt-0.5">{proj.techStack}</div>
-                      <p className="text-slate-600 mt-1">{proj.description}</p>
+                    <div key={proj.id} className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700 text-xs">
+                      <div className="font-bold text-slate-900 dark:text-white">{proj.title}</div>
+                      <div className="text-[11px] font-mono text-purple-700 dark:text-purple-400 mt-0.5">{proj.techStack}</div>
+                      <p className="text-slate-600 dark:text-slate-300 mt-1">{proj.description}</p>
                     </div>
                   ))}
                 </div>
@@ -346,4 +346,3 @@ const StudentDirectory = () => {
 };
 
 export default StudentDirectory;
-

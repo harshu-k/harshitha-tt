@@ -88,39 +88,39 @@ const ProjectsManagement = () => {
   return (
     <div className="space-y-6 animate-in fade-in pb-12">
       {/* Header */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
-            <Layers className="w-6 h-6 text-indigo-600" /> Academic & Portfolio Projects
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+            <Layers className="w-6 h-6 text-indigo-600 dark:text-indigo-400" /> Academic & Portfolio Projects
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Showcase full-stack applications, machine learning models, and system designs.
           </p>
         </div>
 
         <button
           onClick={() => setShowAddModal(true)}
-          className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-200 flex items-center gap-2 self-start sm:self-auto transition-all"
+          className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-500/20 flex items-center gap-2 self-start sm:self-auto transition-all"
         >
           <Plus className="w-4 h-4" /> Add Project
         </button>
       </div>
 
       {message && (
-        <div className="p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-2xl flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600" /> {message}
+        <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold rounded-2xl flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> {message}
         </div>
       )}
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projects.length === 0 ? (
-          <div className="col-span-full bg-white p-12 text-center rounded-3xl border border-slate-200 text-slate-400">
+          <div className="col-span-full bg-white dark:bg-slate-900 p-12 text-center rounded-3xl border border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500">
             <Layers className="w-10 h-10 mx-auto mb-2 opacity-40" />
             <p className="text-xs font-semibold">No projects added yet.</p>
             <button
               onClick={() => setShowAddModal(true)}
-              className="mt-3 text-xs font-bold text-indigo-600 hover:underline"
+              className="mt-3 text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline"
             >
               Add your first project
             </button>
@@ -129,18 +129,18 @@ const ProjectsManagement = () => {
           projects.map((proj) => (
             <div
               key={proj.id}
-              className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-xs hover:border-indigo-300 hover:shadow-md transition-all flex flex-col justify-between"
+              className="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-100 flex items-center justify-center shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-800 flex items-center justify-center shrink-0">
                       <Code className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-sm text-slate-900 leading-snug">{proj.title}</h3>
+                      <h3 className="font-bold text-sm text-slate-900 dark:text-white leading-snug">{proj.title}</h3>
                       <span className={`inline-block mt-1 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full ${
-                        proj.status === 'COMPLETED' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
+                        proj.status === 'COMPLETED' ? 'bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300' : 'bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300'
                       }`}>
                         {proj.status === 'COMPLETED' ? 'Completed' : 'In Progress'}
                       </span>
@@ -149,14 +149,14 @@ const ProjectsManagement = () => {
 
                   <button
                     onClick={() => handleDelete(proj.id)}
-                    className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors shrink-0"
+                    className="p-1.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-slate-800 rounded-lg transition-colors shrink-0"
                     title="Delete"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
 
-                <p className="text-xs text-slate-600 mt-3 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
                   {proj.description}
                 </p>
 
@@ -165,7 +165,7 @@ const ProjectsManagement = () => {
                   {proj.techStack.split(',').map((tech, idx) => (
                     <span
                       key={idx}
-                      className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200"
+                      className="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
                     >
                       {tech.trim()}
                     </span>
@@ -174,13 +174,13 @@ const ProjectsManagement = () => {
               </div>
 
               {/* Links */}
-              <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-3">
+              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center gap-3">
                 {proj.repoUrl && (
                   <a
                     href={proj.repoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-xs font-bold text-slate-700 hover:text-indigo-600 flex items-center gap-1.5"
+                    className="text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center gap-1.5 transition-colors"
                   >
                     <GithubIcon className="w-3.5 h-3.5" /> Source Code
                   </a>
@@ -191,7 +191,7 @@ const ProjectsManagement = () => {
                     href={proj.projectUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-xs font-bold text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
+                    className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 flex items-center gap-1 transition-colors"
                   >
                     Live Demo <ExternalLink className="w-3.5 h-3.5" />
                   </a>
@@ -204,81 +204,81 @@ const ProjectsManagement = () => {
 
       {/* Add Modal */}
       {showAddModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
-          <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full p-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
-              <h3 className="font-extrabold text-sm text-slate-900">Add Project</h3>
-              <button onClick={() => setShowAddModal(false)} className="p-1 text-slate-400 hover:text-slate-600">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 max-w-lg w-full p-6 transition-all">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-4">
+              <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">Add Project</h3>
+              <button onClick={() => setShowAddModal(false)} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Project Title</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Project Title</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Distributed Task Orchestrator"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Tech Stack (comma separated)</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Tech Stack (comma separated)</label>
                 <input
                   type="text"
                   required
                   placeholder="e.g. Java, Spring Boot, React, Kafka, Docker"
                   value={formData.techStack}
                   onChange={(e) => setFormData({ ...formData, techStack: e.target.value })}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Project Description & Architecture</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Project Description & Architecture</label>
                 <textarea
                   rows="3"
                   required
                   placeholder="Describe the problem solved, architectural approach, and key achievements..."
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full p-3 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full p-3 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 ></textarea>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">GitHub Repository URL</label>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">GitHub Repository URL</label>
                   <input
                     type="url"
                     placeholder="https://github.com/..."
                     value={formData.repoUrl}
                     onChange={(e) => setFormData({ ...formData, repoUrl: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                    className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Live Demo URL</label>
+                  <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Live Demo URL</label>
                   <input
                     type="url"
                     placeholder="https://demo.app"
                     value={formData.projectUrl}
                     onChange={(e) => setFormData({ ...formData, projectUrl: e.target.value })}
-                    className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                    className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Project Status</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Project Status</label>
                 <select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 >
                   <option value="COMPLETED">Completed</option>
                   <option value="IN_PROGRESS">In Progress</option>
@@ -289,7 +289,7 @@ const ProjectsManagement = () => {
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
+                  className="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl"
                 >
                   Cancel
                 </button>

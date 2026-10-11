@@ -60,8 +60,8 @@ const AuthModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
-      <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-md w-full overflow-hidden relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 max-w-md w-full overflow-hidden relative transition-colors duration-200">
         {/* Header decoration */}
         <div className="bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 p-6 text-white text-center relative">
           <button
@@ -82,22 +82,22 @@ const AuthModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Quick Demo Login Bar */}
-        <div className="bg-indigo-50/70 p-3 px-6 border-b border-indigo-100 flex items-center justify-between">
-          <span className="text-[11px] font-bold text-indigo-900 flex items-center gap-1">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-600" /> 1-Click Demo Login:
+        <div className="bg-indigo-50/70 dark:bg-slate-800/80 p-3 px-6 border-b border-indigo-100 dark:border-slate-800 flex items-center justify-between">
+          <span className="text-[11px] font-bold text-indigo-900 dark:text-indigo-300 flex items-center gap-1">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> 1-Click Demo Login:
           </span>
           <div className="flex gap-2">
             <button
               type="button"
               onClick={() => handleDemo('student')}
-              className="px-2.5 py-1 text-[11px] font-bold bg-white text-indigo-700 border border-indigo-200 rounded-lg shadow-2xs hover:bg-indigo-50 transition-all"
+              className="px-2.5 py-1 text-[11px] font-bold bg-white dark:bg-slate-700 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-slate-600 rounded-lg shadow-2xs hover:bg-indigo-50 dark:hover:bg-slate-600 transition-all"
             >
               Student
             </button>
             <button
               type="button"
               onClick={() => handleDemo('coordinator')}
-              className="px-2.5 py-1 text-[11px] font-bold bg-white text-purple-700 border border-purple-200 rounded-lg shadow-2xs hover:bg-purple-50 transition-all"
+              className="px-2.5 py-1 text-[11px] font-bold bg-white dark:bg-slate-700 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-slate-600 rounded-lg shadow-2xs hover:bg-purple-50 dark:hover:bg-slate-600 transition-all"
             >
               Coordinator
             </button>
@@ -105,13 +105,13 @@ const AuthModal = ({ isOpen, onClose }) => {
         </div>
 
         {/* Tab switch */}
-        <div className="flex border-b border-slate-100 text-sm font-semibold">
+        <div className="flex border-b border-slate-100 dark:border-slate-800 text-sm font-semibold">
           <button
             onClick={() => { setIsRegister(false); setError(''); }}
             className={`flex-1 py-3 text-center border-b-2 transition-colors ${
               !isRegister
-                ? 'border-indigo-600 text-indigo-600 bg-indigo-50/30'
-                : 'border-transparent text-slate-500 hover:text-slate-700'
+                ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400 bg-indigo-50/30 dark:bg-indigo-950/30'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
             }`}
           >
             Sign In
@@ -120,8 +120,8 @@ const AuthModal = ({ isOpen, onClose }) => {
             onClick={() => { setIsRegister(true); setError(''); }}
             className={`flex-1 py-3 text-center border-b-2 transition-colors ${
               isRegister
-                ? 'border-indigo-600 text-indigo-600 bg-indigo-50/30'
-                : 'border-transparent text-slate-500 hover:text-slate-700'
+                ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400 bg-indigo-50/30 dark:bg-indigo-950/30'
+                : 'border-transparent text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
             }`}
           >
             Create Account
@@ -131,7 +131,7 @@ const AuthModal = ({ isOpen, onClose }) => {
         {/* Form Body */}
         <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[65vh] overflow-y-auto">
           {error && (
-            <div className="p-3 bg-rose-50 border border-rose-200 text-rose-700 text-xs rounded-xl flex items-center gap-2">
+            <div className="p-3 bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-900 text-rose-700 dark:text-rose-300 text-xs rounded-xl flex items-center gap-2">
               <span className="font-medium">{error}</span>
             </div>
           )}
@@ -139,7 +139,7 @@ const AuthModal = ({ isOpen, onClose }) => {
           {isRegister && (
             <>
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Full Name</label>
                 <div className="relative">
                   <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
                   <input
@@ -149,21 +149,21 @@ const AuthModal = ({ isOpen, onClose }) => {
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder="e.g. Harshitha Rao"
-                    className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                    className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Account Role</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Account Role</label>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, role: 'ROLE_STUDENT' })}
                     className={`p-2 text-xs font-semibold rounded-xl border flex items-center justify-center gap-1.5 transition-all ${
                       formData.role === 'ROLE_STUDENT'
-                        ? 'border-indigo-600 bg-indigo-50 text-indigo-700 ring-1 ring-indigo-500'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                        ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-500'
+                        : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
                     <GraduationCap className="w-4 h-4" /> Student
@@ -173,8 +173,8 @@ const AuthModal = ({ isOpen, onClose }) => {
                     onClick={() => setFormData({ ...formData, role: 'ROLE_COORDINATOR' })}
                     className={`p-2 text-xs font-semibold rounded-xl border flex items-center justify-center gap-1.5 transition-all ${
                       formData.role === 'ROLE_COORDINATOR'
-                        ? 'border-purple-600 bg-purple-50 text-purple-700 ring-1 ring-purple-500'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+                        ? 'border-purple-600 bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 ring-1 ring-purple-500'
+                        : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
                     }`}
                   >
                     <Briefcase className="w-4 h-4" /> Coordinator
@@ -185,18 +185,18 @@ const AuthModal = ({ isOpen, onClose }) => {
               {formData.role === 'ROLE_STUDENT' && (
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Roll Number</label>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Roll Number</label>
                     <input
                       type="text"
                       name="rollNumber"
                       value={formData.rollNumber}
                       onChange={handleChange}
                       placeholder="e.g. 22CSE108"
-                      className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                      className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">CGPA</label>
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">CGPA</label>
                     <input
                       type="number"
                       step="0.01"
@@ -204,19 +204,19 @@ const AuthModal = ({ isOpen, onClose }) => {
                       value={formData.cgpa}
                       onChange={handleChange}
                       placeholder="e.g. 8.75"
-                      className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                      className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                     />
                   </div>
                 </div>
               )}
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Department</label>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Department</label>
                 <select
                   name="department"
                   value={formData.department}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 >
                   <option value="Computer Science & Engineering">Computer Science & Engineering</option>
                   <option value="Information Technology">Information Technology</option>
@@ -230,7 +230,7 @@ const AuthModal = ({ isOpen, onClose }) => {
           )}
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
             <div className="relative">
               <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
@@ -240,13 +240,13 @@ const AuthModal = ({ isOpen, onClose }) => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="name@ssims.edu"
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Password</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Password</label>
             <div className="relative">
               <Lock className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
@@ -256,7 +256,7 @@ const AuthModal = ({ isOpen, onClose }) => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="••••••••"
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
               />
             </div>
           </div>
@@ -264,7 +264,7 @@ const AuthModal = ({ isOpen, onClose }) => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 px-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white text-xs font-bold rounded-xl shadow-md shadow-indigo-200 transition-all disabled:opacity-50 mt-2"
+            className="w-full py-2.5 px-4 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white text-xs font-bold rounded-xl shadow-md shadow-indigo-500/20 transition-all disabled:opacity-50 mt-2"
           >
             {loading ? 'Please wait...' : (isRegister ? 'Complete Registration' : 'Sign In to Portal')}
           </button>
@@ -275,4 +275,3 @@ const AuthModal = ({ isOpen, onClose }) => {
 };
 
 export default AuthModal;
-

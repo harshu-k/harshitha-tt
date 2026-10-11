@@ -102,12 +102,12 @@ const InternshipExplorer = () => {
   return (
     <div className="space-y-6 animate-in fade-in pb-12">
       {/* Header Banner */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all">
         <div>
-          <h1 className="text-xl sm:text-2xl font-black text-slate-900 flex items-center gap-2">
-            <Briefcase className="w-6 h-6 text-indigo-600" /> Discover Internship Opportunities
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white flex items-center gap-2">
+            <Briefcase className="w-6 h-6 text-indigo-600 dark:text-indigo-400" /> Discover Internship Opportunities
           </h1>
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
             Explore verified corporate internships with skill-compatibility match scoring.
           </p>
         </div>
@@ -120,14 +120,14 @@ const InternshipExplorer = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by role, company, or skill..."
-            className="w-full pl-10 pr-4 py-2.5 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden bg-slate-50/50"
+            className="w-full pl-10 pr-4 py-2.5 text-xs border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
           />
         </div>
       </div>
 
       {message && (
-        <div className="p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-2xl flex items-center gap-2 animate-in fade-in">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600" /> {message}
+        <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold rounded-2xl flex items-center gap-2 animate-in fade-in">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> {message}
         </div>
       )}
 
@@ -140,7 +140,7 @@ const InternshipExplorer = () => {
             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
               workplaceFilter === type
                 ? 'bg-indigo-600 text-white shadow-xs'
-                : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/80'
+                : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-800'
             }`}
           >
             {type === 'ALL' ? 'All Formats' : type}
@@ -151,7 +151,7 @@ const InternshipExplorer = () => {
       {/* Internships Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {filteredList.length === 0 ? (
-          <div className="col-span-full bg-white p-12 text-center rounded-3xl border border-slate-200 text-slate-400">
+          <div className="col-span-full bg-white dark:bg-slate-900 p-12 text-center rounded-3xl border border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500">
             <Briefcase className="w-10 h-10 mx-auto mb-2 opacity-40" />
             <p className="text-xs font-semibold">No internship openings match your search criteria.</p>
           </div>
@@ -163,12 +163,12 @@ const InternshipExplorer = () => {
             return (
               <div
                 key={item.id}
-                className="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs hover:border-indigo-300 hover:shadow-lg transition-all flex flex-col justify-between group"
+                className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-lg transition-all flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-start gap-3.5">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-center overflow-hidden shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 flex items-center justify-center overflow-hidden shrink-0">
                         {item.companyLogo ? (
                           <img src={item.companyLogo} alt={item.companyName} className="w-8 h-8 object-contain" />
                         ) : (
@@ -176,24 +176,24 @@ const InternshipExplorer = () => {
                         )}
                       </div>
                       <div>
-                        <h3 className="font-extrabold text-sm text-slate-900 group-hover:text-indigo-600 transition-colors">
+                        <h3 className="font-extrabold text-sm text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                           {item.title}
                         </h3>
-                        <p className="text-xs font-bold text-slate-700 mt-0.5">{item.companyName}</p>
-                        <p className="text-[11px] text-slate-500 flex items-center gap-1 mt-0.5">
-                          <MapPin className="w-3 h-3 text-slate-400" /> {item.location} • <span className="font-semibold text-indigo-700">{item.workplaceType}</span>
+                        <p className="text-xs font-bold text-slate-700 dark:text-slate-300 mt-0.5">{item.companyName}</p>
+                        <p className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1 mt-0.5">
+                          <MapPin className="w-3 h-3 text-slate-400" /> {item.location} • <span className="font-semibold text-indigo-700 dark:text-indigo-400">{item.workplaceType}</span>
                         </p>
                       </div>
                     </div>
 
                     <div className="text-right shrink-0">
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-black bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        <Sparkles className="w-3 h-3 mr-1 text-emerald-600" /> {matchScore}% Match
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-black bg-emerald-50 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+                        <Sparkles className="w-3 h-3 mr-1 text-emerald-600 dark:text-emerald-400" /> {matchScore}% Match
                       </span>
                     </div>
                   </div>
 
-                  <p className="text-xs text-slate-600 mt-4 line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-4 line-clamp-3 leading-relaxed">
                     {item.description}
                   </p>
 
@@ -210,8 +210,8 @@ const InternshipExplorer = () => {
                           key={idx}
                           className={`text-[10px] font-semibold px-2 py-0.5 rounded-md border ${
                             isMatched
-                              ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                              : 'bg-slate-50 text-slate-600 border-slate-200'
+                              ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800'
+                              : 'bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700'
                           }`}
                         >
                           {isMatched ? '✓ ' : ''}{clean}
@@ -221,8 +221,8 @@ const InternshipExplorer = () => {
                   </div>
 
                   {/* Key metadata pills */}
-                  <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-slate-500 font-medium">
-                    <span className="font-bold text-slate-900">💰 {item.stipend}</span>
+                  <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+                    <span className="font-bold text-slate-900 dark:text-white">💰 {item.stipend}</span>
                     <span>⏱ {item.duration}</span>
                     <span>🎓 Min CGPA: {item.minCgpa || 6.0}</span>
                     {item.openings && <span>👥 {item.openings} Openings</span>}
@@ -230,14 +230,14 @@ const InternshipExplorer = () => {
                 </div>
 
                 {/* Card Action footer */}
-                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-[10px] text-slate-400">
+                <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                  <span className="text-[10px] text-slate-400 dark:text-slate-500">
                     Deadline: {item.applicationDeadline || 'Rolling'}
                   </span>
 
                   {item.userApplied ? (
-                    <span className="px-3.5 py-1.5 rounded-xl bg-slate-100 text-slate-600 font-bold text-xs flex items-center gap-1.5 cursor-default">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Applied
+                    <span className="px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold text-xs flex items-center gap-1.5 cursor-default">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /> Applied
                     </span>
                   ) : (
                     <button
@@ -256,37 +256,37 @@ const InternshipExplorer = () => {
 
       {/* Apply Modal */}
       {applyModalOpen && selectedInternship && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in">
-          <div className="bg-white rounded-3xl shadow-2xl border border-slate-100 max-w-lg w-full p-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 max-w-lg w-full p-6 transition-all">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-4">
               <div>
-                <h3 className="font-extrabold text-sm text-slate-900">
+                <h3 className="font-extrabold text-sm text-slate-900 dark:text-white">
                   Apply for {selectedInternship.title}
                 </h3>
-                <p className="text-xs text-slate-500">{selectedInternship.companyName} • {selectedInternship.stipend}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{selectedInternship.companyName} • {selectedInternship.stipend}</p>
               </div>
-              <button onClick={() => setApplyModalOpen(false)} className="p-1 text-slate-400 hover:text-slate-600">
+              <button onClick={() => setApplyModalOpen(false)} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <form onSubmit={handleApplySubmit} className="space-y-4">
-              <div className="p-3 bg-indigo-50/60 rounded-2xl border border-indigo-100 text-xs text-indigo-900 space-y-1">
+              <div className="p-3 bg-indigo-50/60 dark:bg-indigo-950/40 rounded-2xl border border-indigo-100 dark:border-indigo-900/50 text-xs text-indigo-900 dark:text-indigo-200 space-y-1">
                 <div className="font-bold flex items-center gap-1">
-                  <UserCheck className="w-3.5 h-3.5 text-indigo-600" /> Applying as: {user?.fullName}
+                  <UserCheck className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> Applying as: {user?.fullName}
                 </div>
-                <div className="text-[11px] text-slate-600">
+                <div className="text-[11px] text-slate-600 dark:text-slate-400">
                   {studentProfile?.course} • CGPA: {studentProfile?.cgpa || '8.5'} • Roll: {studentProfile?.rollNumber}
                 </div>
                 {studentProfile?.resumeFileName && (
-                  <div className="text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
+                  <div className="text-[11px] text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1">
                     <FileText className="w-3.5 h-3.5" /> Attached Resume: {studentProfile.resumeFileName}
                   </div>
                 )}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
                   Cover Letter / Statement of Purpose
                 </label>
                 <textarea
@@ -294,7 +294,7 @@ const InternshipExplorer = () => {
                   required
                   value={coverLetter}
                   onChange={(e) => setCoverLetter(e.target.value)}
-                  className="w-full p-3 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full p-3 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 ></textarea>
               </div>
 
@@ -302,7 +302,7 @@ const InternshipExplorer = () => {
                 <button
                   type="button"
                   onClick={() => setApplyModalOpen(false)}
-                  className="px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl"
+                  className="px-4 py-2 text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl"
                 >
                   Cancel
                 </button>
@@ -323,4 +323,3 @@ const InternshipExplorer = () => {
 };
 
 export default InternshipExplorer;
-

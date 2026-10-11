@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { NotificationProvider } from './context/NotificationContext';
 import Navbar from './components/Navbar';
@@ -47,7 +48,7 @@ const MainLayout = () => {
   }, [isCoordinator]);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200">
       <Navbar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -112,32 +113,32 @@ const MainLayout = () => {
 
             {/* Feature Highlights Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+              <div className="bg-white dark:bg-slate-900/90 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3 transition-colors">
+                <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
                   <Code className="w-6 h-6" />
                 </div>
-                <h3 className="font-black text-base text-slate-900">Skill Matrix & Verification</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h3 className="font-black text-base text-slate-900 dark:text-slate-100">Skill Matrix & Verification</h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   Students log technical and soft skills with multi-tiered proficiencies. Coordinators endorse credentials to prevent resume inflation.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-purple-600" />
+              <div className="bg-white dark:bg-slate-900/90 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3 transition-colors">
+                <div className="w-12 h-12 rounded-2xl bg-purple-50 dark:purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                 </div>
-                <h3 className="font-black text-base text-slate-900">Skill-Based Recommendations</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h3 className="font-black text-base text-slate-900 dark:text-slate-100">Skill-Based Recommendations</h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   Algorithms calculate real-time match percentages between student skill sets, academic criteria, and internship specifications.
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+              <div className="bg-white dark:bg-slate-900/90 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-3 transition-colors">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                   <TrendingUp className="w-6 h-6" />
                 </div>
-                <h3 className="font-black text-base text-slate-900">Recruitment Analytics & ATS Resume</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
+                <h3 className="font-black text-base text-slate-900 dark:text-slate-100">Recruitment Analytics & ATS Resume</h3>
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   Comprehensive coordinator pipeline analytics combined with instant single-click generation of ATS-optimized student resumes.
                 </p>
               </div>
@@ -173,14 +174,14 @@ const MainLayout = () => {
       </main>
 
       {/* Production Footer */}
-      <footer className="mt-auto border-t border-slate-200 bg-white py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <footer className="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 py-6 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <div className="flex items-center gap-2 font-medium">
-            <span className="font-black text-slate-900">SSIMS</span>
+            <span className="font-black text-slate-900 dark:text-white">SSIMS</span>
             <span>•</span>
             <span>Student Skill & Internship Management System</span>
           </div>
-          <div className="flex items-center gap-4 text-[11px] font-semibold text-slate-400">
+          <div className="flex items-center gap-4 text-[11px] font-semibold text-slate-400 dark:text-slate-500">
             <span>Spring Boot 3 (Java 21)</span>
             <span>•</span>
             <span>React 19 + Vite</span>
@@ -197,11 +198,13 @@ const MainLayout = () => {
 
 function App() {
   return (
-    <AuthProvider>
-      <NotificationProvider>
-        <MainLayout />
-      </NotificationProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <NotificationProvider>
+          <MainLayout />
+        </NotificationProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

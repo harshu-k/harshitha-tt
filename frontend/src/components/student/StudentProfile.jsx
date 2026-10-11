@@ -154,30 +154,30 @@ const StudentProfile = () => {
   return (
     <div className="space-y-6 animate-in fade-in pb-12">
       {/* Header Profile Bar */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all">
         <div className="flex items-center gap-4">
           <div className="relative">
             <img
               src={user?.avatarUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(formData.fullName || 'Student')}&background=4f46e5&color=fff&size=128`}
               alt="Avatar"
-              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-indigo-200 shadow-sm ring-4 ring-indigo-50"
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover border-2 border-indigo-200 dark:border-indigo-800 shadow-sm ring-4 ring-indigo-50 dark:ring-indigo-950"
             />
-            <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white flex items-center justify-center text-white text-[10px]">
+            <span className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 flex items-center justify-center text-white text-[10px]">
               ✓
             </span>
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-xl sm:text-2xl font-black text-slate-900">{formData.fullName || user?.fullName}</h1>
-              <span className="text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-700">
+              <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">{formData.fullName || user?.fullName}</h1>
+              <span className="text-[11px] font-extrabold uppercase px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
                 Verified Student
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-slate-500 font-medium mt-0.5">
+            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-0.5">
               {formData.course} • Roll No: {formData.rollNumber}
             </p>
-            <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-slate-600">
-              <span className="font-semibold text-indigo-600">CGPA: {formData.cgpa} / 10</span>
+            <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-slate-600 dark:text-slate-400">
+              <span className="font-semibold text-indigo-600 dark:text-indigo-400">CGPA: {formData.cgpa} / 10</span>
               <span>•</span>
               <span>Graduation: {formData.graduationYear}</span>
             </div>
@@ -187,7 +187,7 @@ const StudentProfile = () => {
         <div className="flex flex-wrap gap-2.5">
           <button
             onClick={() => setShowResumeModal(true)}
-            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold text-xs shadow-md shadow-indigo-200 transition-all flex items-center gap-2"
+            className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold text-xs shadow-md shadow-indigo-500/20 transition-all flex items-center gap-2"
           >
             <Sparkles className="w-4 h-4 text-amber-300" /> ATS Resume Generator & Export
           </button>
@@ -195,21 +195,21 @@ const StudentProfile = () => {
       </div>
 
       {message && (
-        <div className="p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-2xl flex items-center gap-2 animate-in fade-in">
-          <CheckCircle2 className="w-4 h-4 text-emerald-600" /> {message}
+        <div className="p-3.5 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-semibold rounded-2xl flex items-center gap-2 animate-in fade-in">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> {message}
         </div>
       )}
 
       {/* Profile Edit Form */}
-      <form onSubmit={handleSave} className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
+      <form onSubmit={handleSave} className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-6 transition-all">
         <div>
-          <h2 className="text-base font-extrabold text-slate-900">Academic & Personal Details</h2>
-          <p className="text-xs text-slate-500">Keep your academic and contact details up-to-date for internship coordinators.</p>
+          <h2 className="text-base font-extrabold text-slate-900 dark:text-white">Academic & Personal Details</h2>
+          <p className="text-xs text-slate-500 dark:text-slate-400">Keep your academic and contact details up-to-date for internship coordinators.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Full Name</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Full Name</label>
             <div className="relative">
               <User className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
@@ -217,26 +217,26 @@ const StudentProfile = () => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Email Address (Read-only)</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Email Address (Read-only)</label>
             <div className="relative">
               <Mail className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
                 type="email"
                 disabled
                 value={user?.email || ''}
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 bg-slate-50 text-slate-500 rounded-xl cursor-not-allowed"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 rounded-xl cursor-not-allowed"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Phone Number</label>
             <div className="relative">
               <Phone className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
@@ -245,13 +245,13 @@ const StudentProfile = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="+91 9876543210"
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Roll / Registration Number</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Roll / Registration Number</label>
             <div className="relative">
               <GraduationCap className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
               <input
@@ -259,30 +259,30 @@ const StudentProfile = () => {
                 name="rollNumber"
                 value={formData.rollNumber}
                 onChange={handleChange}
-                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Degree / Course</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Degree / Course</label>
             <input
               type="text"
               name="course"
               value={formData.course}
               onChange={handleChange}
               placeholder="e.g. B.Tech Computer Science & Engineering"
-              className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+              className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Department</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Department</label>
             <select
               name="department"
               value={formData.department}
               onChange={handleChange}
-              className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+              className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
             >
               <option value="Computer Science & Engineering">Computer Science & Engineering</option>
               <option value="Information Technology">Information Technology</option>
@@ -294,35 +294,35 @@ const StudentProfile = () => {
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Graduation Year</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Graduation Year</label>
             <input
               type="number"
               name="graduationYear"
               value={formData.graduationYear}
               onChange={handleChange}
-              className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+              className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-700 mb-1">Cumulative CGPA (out of 10.0)</label>
+            <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Cumulative CGPA (out of 10.0)</label>
             <input
               type="number"
               step="0.01"
               name="cgpa"
               value={formData.cgpa}
               onChange={handleChange}
-              className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden font-bold text-indigo-700"
+              className="w-full px-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-bold text-indigo-700 dark:text-indigo-400 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
             />
           </div>
         </div>
 
         {/* Social / Portfolio Links */}
-        <div className="pt-4 border-t border-slate-100">
-          <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-600 mb-3">Online Profiles & Portfolios</h3>
+        <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+          <h3 className="text-xs font-extrabold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-3">Online Profiles & Portfolios</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">GitHub Profile URL</label>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">GitHub Profile URL</label>
               <div className="relative">
                 <GithubIcon className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
                 <input
@@ -331,13 +331,13 @@ const StudentProfile = () => {
                   value={formData.githubUrl}
                   onChange={handleChange}
                   placeholder="https://github.com/username"
-                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">LinkedIn Profile URL</label>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">LinkedIn Profile URL</label>
               <div className="relative">
                 <LinkedinIcon className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
                 <input
@@ -346,13 +346,13 @@ const StudentProfile = () => {
                   value={formData.linkedinUrl}
                   onChange={handleChange}
                   placeholder="https://linkedin.com/in/username"
-                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Personal Portfolio / Website</label>
+              <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Personal Portfolio / Website</label>
               <div className="relative">
                 <Globe className="w-4 h-4 text-slate-400 absolute left-3 top-3" />
                 <input
@@ -361,7 +361,7 @@ const StudentProfile = () => {
                   value={formData.portfolioUrl}
                   onChange={handleChange}
                   placeholder="https://yourportfolio.dev"
-                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
                 />
               </div>
             </div>
@@ -369,8 +369,8 @@ const StudentProfile = () => {
         </div>
 
         {/* Career Objective */}
-        <div className="pt-4 border-t border-slate-100">
-          <label className="block text-xs font-bold text-slate-700 mb-1">
+        <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
             Career Objective / Summary Statement (Rendered on ATS Resume)
           </label>
           <textarea
@@ -379,34 +379,34 @@ const StudentProfile = () => {
             value={formData.careerObjective}
             onChange={handleChange}
             placeholder="Seeking an impactful internship in Full-Stack Software Development where I can apply Java, Spring Boot, React, and cloud architectures..."
-            className="w-full p-3 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
+            className="w-full p-3 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-hidden"
           ></textarea>
         </div>
 
         {/* Upload Resume Attachment */}
-        <div className="pt-4 border-t border-slate-100">
-          <label className="block text-xs font-bold text-slate-700 mb-2">Resume PDF Document (Optional Attachment)</label>
+        <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+          <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">Resume PDF Document (Optional Attachment)</label>
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            <label className="cursor-pointer px-4 py-2.5 rounded-xl border border-dashed border-indigo-300 bg-indigo-50/50 hover:bg-indigo-50 text-indigo-700 font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
-              <Upload className="w-4 h-4 text-indigo-600" />
+            <label className="cursor-pointer px-4 py-2.5 rounded-xl border border-dashed border-indigo-300 dark:border-indigo-800 bg-indigo-50/50 dark:bg-indigo-950/40 hover:bg-indigo-50 dark:hover:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 font-semibold text-xs flex items-center justify-center gap-2 transition-colors">
+              <Upload className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span>{uploadingResume ? 'Uploading...' : 'Upload PDF / DOCX'}</span>
               <input type="file" accept=".pdf,.doc,.docx" onChange={handleResumeUpload} className="hidden" />
             </label>
 
             {formData.resumeFileName && (
-              <div className="flex items-center gap-2 text-xs text-slate-700 bg-slate-100 px-3 py-2 rounded-xl">
-                <FileText className="w-4 h-4 text-indigo-600" />
+              <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-xl">
+                <FileText className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
                 <span className="font-semibold">{formData.resumeFileName}</span>
               </div>
             )}
           </div>
         </div>
 
-        <div className="flex justify-end pt-4 border-t border-slate-100">
+        <div className="flex justify-end pt-4 border-t border-slate-100 dark:border-slate-800">
           <button
             type="submit"
             disabled={saving}
-            className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-200 transition-all flex items-center gap-2 disabled:opacity-50"
+            className="px-6 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md shadow-indigo-500/20 transition-all flex items-center gap-2 disabled:opacity-50"
           >
             <Save className="w-4 h-4" /> {saving ? 'Saving...' : 'Save Profile Changes'}
           </button>
@@ -415,15 +415,15 @@ const StudentProfile = () => {
 
       {/* ATS Resume Preview & Print Modal */}
       {showResumeModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-xs animate-in fade-in overflow-y-auto">
-          <div className="bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-4xl w-full my-8 max-h-[92vh] flex flex-col overflow-hidden">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in overflow-y-auto">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 max-w-4xl w-full my-8 max-h-[92vh] flex flex-col overflow-hidden">
             {/* Modal Header */}
-            <div className="p-4 px-6 border-b border-slate-200 flex items-center justify-between bg-slate-50 no-print">
+            <div className="p-4 px-6 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-900 no-print">
               <div className="flex items-center gap-2">
-                <FileText className="w-5 h-5 text-indigo-600" />
+                <FileText className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                 <div>
-                  <h3 className="font-black text-sm text-slate-900">ATS-Optimized Resume Preview</h3>
-                  <p className="text-[11px] text-slate-500">Standard single-page format ready for recruiters and applicant tracking systems</p>
+                  <h3 className="font-black text-sm text-slate-900 dark:text-white">ATS-Optimized Resume Preview</h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">Standard single-page format ready for recruiters and applicant tracking systems</p>
                 </div>
               </div>
 
@@ -436,14 +436,14 @@ const StudentProfile = () => {
                 </button>
                 <button
                   onClick={() => setShowResumeModal(false)}
-                  className="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg"
+                  className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-white rounded-lg transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
-            {/* Resume Sheet Content */}
+            {/* Resume Sheet Content (Printable Ivory/White Canvas for Authenticity) */}
             <div className="p-8 sm:p-12 overflow-y-auto bg-white text-slate-900 font-sans resume-sheet">
               {/* Name & Contact */}
               <div className="text-center pb-4 border-b-2 border-slate-800">
