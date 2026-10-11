@@ -1,0 +1,18 @@
+# Java / Maven
+backend/target/
+backend/.mvn/
+backend/*.log
+backend/data/
+
+# Node / Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/*.log
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.iml
